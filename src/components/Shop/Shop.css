@@ -1,0 +1,20 @@
+.main-section {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+.shop-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  padding: 120px 8px;
+}
+
+.side-bar {
+  height: calc(100vh - 80px);
+  background-color: rgba(255, 153, 0, 0.3);
+  position: fixed;
+  right: 0;
+  top: 80px;
+  width: 20%;
+}

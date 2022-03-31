@@ -1,0 +1,35 @@
+.header {
+  width: 100%;
+  background: #1c2b35;
+  height: 80px;
+  /* position: fixed; */
+  z-index: 5;
+}
+
+.nav-bar {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  margin: 0;
+}
+
+.menu-item {
+  list-style: none;
+}
+.menu-item a {
+  color: #fff;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.menu-item a:hover {
+  color: #ff9900;
+}
