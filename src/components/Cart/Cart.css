@@ -1,7 +1,9 @@
 .main-cart {
   padding: 10px;
 }
-
+a {
+  text-decoration: none !important;
+}
 .cart-title {
   margin-top: 30px;
   margin-bottom: 50px;

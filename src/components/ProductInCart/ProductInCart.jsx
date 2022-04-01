@@ -6,7 +6,7 @@ const ProductInCart = ({ data, handleRemove }) => {
   return (
     <div className="cart-product">
       <div className="product-info">
-        <div className="product-img">
+        <div className="cart-product-img">
           <img src={img} alt="" />
         </div>
         <div className="product-description">

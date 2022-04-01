@@ -1,10 +1,13 @@
 import React from "react";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
-import { addToDb } from "../../utilities/fakedb";
+import { addToDb, deleteShoppingCart } from "../../utilities/fakedb";
 import "./Shop.css";
 import useProducts from "../../hooks/useProducts";
 import useCart from "../../hooks/useCart";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Shop = () => {
   const [products, setProducts] = useProducts();
@@ -24,6 +27,12 @@ const Shop = () => {
     setCart(newCart);
     addToDb(selectedProduct.id);
   };
+
+  const clearCart = () => {
+    setCart([]);
+    deleteShoppingCart();
+  };
+
   return (
     <div className="container main-section">
       <div className="shop-section">
@@ -36,7 +45,14 @@ const Shop = () => {
         ))}
       </div>
       <div className="side-bar">
-        <Cart data={cart} />
+        <Cart data={cart} clearCart={clearCart}>
+          <Link to="/order">
+            <button className="review-button">
+              <p>Review Order</p>
+              <FontAwesomeIcon icon={faArrowAltCircleRight} />
+            </button>
+          </Link>
+        </Cart>
       </div>
     </div>
   );

@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashCan,
   faArrowAltCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
+import { useNavigate } from "react-router-dom";
 
-const Cart = ({ data }) => {
+const Cart = ({ data, children, clearCart }) => {
   // const totalPrice = data.reduce((prev, curr) => {
   //   return prev + curr.price;
   // }, 0);
@@ -23,6 +24,11 @@ const Cart = ({ data }) => {
   let tax = (totalPrice * 0.1).toFixed(2);
 
   let grandTotal = totalPrice + shipping + parseFloat(tax);
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/inventory");
+  };
+
   return (
     <div className="main-cart">
       <h3 className="cart-title">Order Summary</h3>
@@ -34,14 +40,13 @@ const Cart = ({ data }) => {
         <h4>Grand Total: ${grandTotal}</h4>
       </div>
       <div className="buttons">
-        <button className="clear-button">
+        <button className="clear-button" onClick={clearCart}>
           <p>Clear Cart</p>
           <FontAwesomeIcon icon={faTrashCan} />
         </button>
-        <button className="review-button">
-          <p>Review Order</p>
-          <FontAwesomeIcon icon={faArrowAltCircleRight} />
-        </button>
+
+        {children}
+        <button onClick={handleNavigate}>Navigate</button>
       </div>
     </div>
   );

@@ -12,10 +12,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
-.product-img {
+.cart-product-img {
   width: 70px;
   height: 70px;
+}
+.cart-product-img img {
+  width: 100%;
 }
 
 .product-description {
